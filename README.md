@@ -1,67 +1,71 @@
 # SHL Assessment Recommendation System
 
-This project is an AI-powered recommendation system built to suggest the most relevant SHL assessments based on user queries, job descriptions, or unstructured input data. It combines NLP techniques and Large Language Models (LLMs) to provide accurate, efficient, and context-aware results through an intuitive frontend interface.
+This project is an **AI-powered recommendation engine** designed to suggest the most relevant SHL assessments based on job descriptions, unstructured text, or user-defined queries. By integrating **NLP techniques** and **Large Language Models (LLMs)**, the system delivers accurate, efficient, and context-aware recommendations through an interactive web interface.
 
-Try it out @ https://shlasserecomsystem-elv5a7qkuqydy6igbiyxew.streamlit.app/ [Example Test Cases given below]
+🚀 **Try it out**: [SHL Assessment Recommender](https://shlasserecomsystem-elv5a7qkuqydy6igbiyxew.streamlit.app/)  
+💡 _Example test cases provided below._
 
-## Features
+---
 
-- Recommends SHL assessments based on:
+## 🔍 Features
+
+- Smart SHL assessment recommendations based on:
   - Job descriptions
-  - Unstructured URLs or text input
-  - Custom user queries
-- NLP-based semantic similarity matching using Sentence-BERT
-- Contextual feature extraction and filtering using Gemini 1.5 Pro (LLM)
-- Ranking and scoring using cosine similarity
-- Top recommendations output with relevance filtering
-- Streamlit-based frontend for an interactive user experience
+  - Raw URLs or pasted text
+  - Custom natural language queries
+- Semantic matching using **Sentence-BERT**
+- Contextual understanding via **Gemini 1.5 Pro (Google LLM)**
+- Relevance filtering and ranking with **cosine similarity**
+- Interactive, user-friendly **Streamlit frontend**
 
-## Tech Stack
+---
 
-- **Natural Language Processing**:
-  - Sentence-BERT for creating embeddings of assessments and queries
-  - Cosine similarity for ranking the most relevant assessments
-- **LLM Integration**:
-  - Gemini 1.5 Pro used to extract structured features (job title, skills, duration, etc.) from unstructured input
-  - Post-processing and filtering of recommendations based on constraints like duration and skill match
-- **Frontend**:
-  - Streamlit application for user-friendly interaction and display of results
+## 🧰 Tech Stack
 
-## How It Works
+### 🔤 Natural Language Processing
+- **Sentence-BERT**: Converts assessments and user inputs into vector embeddings
+- **Cosine Similarity**: Ranks assessments based on semantic relevance
 
-1. **Data Preparation**:
-   - A mock dataset of 50 SHL-like assessments is used, each containing:
-     - Assessment name, URL, duration, test type, skills, description, remote support, and adaptive/IRT support.
-   - A "combined" column is created by concatenating all columns into a single string for embedding.
+### 🧠 Large Language Model (LLM) Integration
+- **Gemini 1.5 Pro**:
+  - Extracts structured fields like job title, required skills, and constraints
+  - Enhances filtering accuracy using contextual understanding
 
-2. **NLP Embedding and Retrieval**:
-   - Sentence-BERT is used to convert both dataset entries and input queries into vector embeddings.
-   - Cosine similarity is calculated to identify the top matching assessments.
+### 💻 Frontend
+- Built with **Streamlit** for real-time interaction and result visualization
 
-3. **LLM Enhancement (Gemini 1.5 Pro)**:
-   - Accepts job descriptions, URLs, or unstructured queries.
-   - Extracts meaningful structured features like job role, required skills, expected duration, etc.
-   - This information is used to generate more accurate embeddings.
-   - After retrieving top candidates, Gemini re-filters based on constraints and relevance.
+---
 
-4. **Evaluation**:
-   - Performance is evaluated using metrics such as Recall@5 and MAP@5.
-   - The hybrid (NLP + LLM) approach outperforms the pure NLP baseline in both metrics.
+## ⚙️ How It Works
 
-5. **Streamlit Interface**:
-   - Users can input queries directly in a web interface.
-   - Receives and displays the top recommended assessments along with their details.
+### 🗂️ Data Preparation
+- Uses a dataset of 50+ SHL-style assessments containing:
+  - Name, URL, duration, test type, skills, description, remote/adaptive support
+- A `combined` column is created by merging all fields into a single text blob for embeddings
 
-## Performance
-- NLP Model - Recall@5 = 0.85 and MAP@5 = 0.71
-- NLP + LLM Model - Recall@5 = 1.0 and MAP@5 = 1.0
-  
-## Test Cases 
-- I am hiring for Java developers who can also collaborate effectively with my business teams. Looking
-for an assessment(s) that can be completed in 40 minutes.
-- Looking to hire mid-level professionals who are proficient in Python, SQL and Java Script. Need an
-assessment package that can test all skills with max duration of 60 minutes.
-- I am hiring for an analyst and wants applications to screen using Cognitive and personality tests,
-what options are available within 45 mins.
-- https://www.linkedin.com/jobs/view/research-engineer-ai-at-shl-4194768899/?originalSubdomain=in
-- Want to assess communication and teamwork skills in under 30 minutes.
+### 🔎 Embedding & Semantic Retrieval
+- Inputs and dataset entries are embedded using **Sentence-BERT**
+- Cosine similarity determines the closest-matching assessments
+
+### 💡 Query Understanding with Gemini 1.5 Pro
+- Accepts full job descriptions, URLs, or plain text
+- Extracts relevant features: job role, duration, skills, constraints
+- Enhances recommendation accuracy by re-filtering the top results
+
+### 📈 Evaluation
+- Assessed using **Recall@5** and **MAP@5**
+- Hybrid (NLP + LLM) method significantly outperforms baseline NLP-only
+
+### 🖥️ Streamlit Interface
+- Users input queries via web form
+- Outputs include assessment name, type, duration, description, and matched criteria
+
+---
+
+## 🧪 Test Cases
+
+1. I am hiring for **Java developers** who can also collaborate effectively with my business teams. Looking for an assessment(s) that can be completed in **40 minutes**.
+2. Looking to hire **mid-level professionals** who are proficient in **Python, SQL, and JavaScript**. Need an assessment package that can test all skills with a max duration of **60 minutes**.
+3. I am hiring for an **analyst** and want applications to be screened using **Cognitive and Personality** tests. What options are available within **45 mins**?
+4. [LinkedIn Job Posting: Research Engineer (AI) – SHL](https://www.linkedin.com/jobs/view/research-engineer-ai-at-shl-4194768899/?originalSubdomain=in)
+5. Want to assess **communication** and **teamwork** skills in under **30 minutes**.
