@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from query_functions import query_handling_using_LLM_updated # Assuming this import is correct
+from subfolder.query_functions import query_handling_using_LLM_updated# Assuming this import is correct
 
 # Function to set background image
 def set_background(image_url):
